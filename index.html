@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>萬茶盛典 II 活動時間表</title>
+<meta name="description" content="第二屆萬茶盛典 2026/12/11–13 活動時間表">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap">
+<style>
+:root{
+  --ink:#1C1B18;--cream:#F4EFE6;--paper:#FBF8F1;--khaki:#E8DFCE;--card:#DED2B8;
+  --band:#ECE4D6;--mi:#564E42;
+  --gold:#9C7A3C;--gold-deep:#85672F;--teal:#2F5A5B;
+  --muted:#7A7263;--muted-dark:#3A362E;--on-dark:#B9AF9B;--on-dark-faint:#7A7263;
+  --wrap:1200px;--lab:120px;
+  --serif:"Noto Serif TC","Songti TC",serif;--sans:"Noto Sans TC","PingFang TC",sans-serif;
+}
+html{color-scheme:light;-webkit-text-size-adjust:100%}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--muted-dark);font-family:var(--sans);
+  font-size:15px;line-height:1.65;overflow-x:hidden}
+img,svg{max-width:100%}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 16px}
+@media(min-width:820px){.wrap{padding:0 24px}}
+
+/* 頁首（墨底） */
+.phead{background:var(--ink);padding:24px 0 22px;position:relative}
+.phead .brand{font-family:var(--serif);color:var(--cream);font-size:21px;
+  letter-spacing:.16em;font-weight:700;line-height:1.3}
+.phead .bsub{font-size:10px;letter-spacing:.3em;color:var(--gold);margin-top:7px;
+  text-transform:uppercase}
+.phead h1{font-family:var(--serif);color:var(--cream);font-weight:600;line-height:1.35;
+  font-size:22px;margin:20px 0 7px}
+@media(min-width:820px){.phead h1{font-size:30px}}
+.phead .dates{font-size:13px;color:var(--on-dark)}
+.langs{display:flex;gap:6px;margin-top:16px;flex-wrap:wrap}
+@media(min-width:820px){.langs{position:absolute;top:24px;right:24px;margin:0}}
+.langs button{font-family:var(--sans);font-size:12px;letter-spacing:.04em;cursor:pointer;
+  background:transparent;border:1px solid rgba(255,255,255,.26);color:var(--on-dark);
+  padding:5px 11px;border-radius:2px}
+.langs button[aria-pressed="true"]{border-color:var(--gold);color:var(--cream)}
+
+/* 日期分頁（黏頂） */
+.daybar{position:sticky;top:0;z-index:30;background:var(--cream);
+  border-bottom:1px solid var(--card)}
+.daybar .in{display:flex;max-width:var(--wrap);margin:0 auto;padding:0 8px}
+@media(min-width:820px){.daybar .in{padding:0 24px}}
+.daybar button{flex:1 1 0;min-width:0;background:transparent;border:0;cursor:pointer;
+  border-bottom:2px solid transparent;padding:13px 4px;font-family:var(--sans);
+  font-size:14px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.daybar button[aria-selected="true"]{color:var(--ink);font-weight:500;
+  border-bottom-color:var(--gold)}
+
+main{padding-bottom:8px}
+.bandnote{background:var(--khaki);border:1px solid var(--card);border-radius:3px;
+  padding:10px 13px;font-size:13px;line-height:1.6;color:var(--muted-dark);margin:18px 0 14px}
+
+/* 電腦橫式時間軸 / 手機直式清單 切換 */
+.board{display:none}
+.list{display:block}
+@media(min-width:820px){.board{display:block}.list{display:none}}
+
+.board{position:relative;margin:4px 0 6px}
+.layer{position:absolute;left:var(--lab);right:0;top:20px;bottom:0;z-index:0;
+  pointer-events:none;overflow:hidden}
+.layer .bd{position:absolute;top:0;bottom:0;background:var(--band)}
+.layer .gl{position:absolute;inset:0;opacity:.75;
+  background-image:repeating-linear-gradient(to right,var(--card) 0 1px,transparent 1px 12.5%)}
+.rows{position:relative;z-index:1}
+.thead{display:grid;grid-template-columns:var(--lab) 1fr;position:relative;z-index:1}
+.ticks{position:relative;height:20px}
+.ticks span{position:absolute;top:0;font-size:11px;color:var(--muted);white-space:nowrap;
+  transform:translateX(-50%)}
+.ticks span.f{transform:none;left:0}
+.ticks span.l{transform:none;left:auto;right:0}
+.row{display:grid;grid-template-columns:var(--lab) 1fr;border-top:1px solid var(--card)}
+.rows .row:last-child{border-bottom:1px solid var(--card)}
+.rlab{display:flex;align-items:center;overflow:hidden;padding:10px 12px 10px 0;
+  border-right:1px solid var(--card)}
+.rlab span{font-family:var(--serif);font-size:13px;line-height:1.35;color:var(--ink);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-left:3px solid var(--cc);
+  padding-left:9px}
+.track{position:relative;padding:7px 0}
+.card{position:absolute;overflow:hidden;background:var(--fl);border:1px solid var(--eg);
+  border-left:3px solid var(--cc);border-radius:3px;padding:5px 7px;max-width:100%}
+.card .sp{font-size:12px;font-weight:600;color:var(--ink);line-height:1.3;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .ti{font-size:12px;color:var(--tx);line-height:1.3;overflow:hidden;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;max-height:2.6em}
+.card .mt{font-size:11px;color:var(--mi);line-height:1.35;margin-top:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* 手機直式清單 */
+.lcard{display:grid;grid-template-columns:58px 1fr;gap:10px;align-items:start;
+  background:var(--fl);border:1px solid var(--eg);border-left:3px solid var(--cc);
+  border-radius:3px;padding:11px 12px;margin:8px 0}
+.lcard>div{min-width:0}
+.lt b{display:block;font-family:var(--serif);font-size:17px;line-height:1.15;color:var(--ink)}
+.lt i{display:block;font-style:normal;font-size:12px;color:var(--mi);margin-top:2px}
+.tag{display:inline-block;font-size:11px;line-height:1.5;color:var(--tx);
+  background:var(--tg);border:1px solid var(--eg);border-radius:2px;padding:0 6px;
+  margin-bottom:4px}
+.sp2{font-size:14px;font-weight:500;color:var(--ink);overflow-wrap:anywhere}
+.ti2{font-size:14px;color:var(--tx);margin-top:1px;overflow-wrap:anywhere}
+.vn2{font-size:12px;color:var(--mi);margin-top:3px;overflow-wrap:anywhere}
+.nt2{display:inline-block;font-size:11px;line-height:1.6;color:var(--muted-dark);
+  background:var(--tg);border:1px solid var(--eg);border-radius:2px;padding:0 5px;
+  margin-top:5px}
+.blk{background:var(--band);border:1px solid var(--card);border-radius:3px;
+  padding:9px 9px 11px;margin:12px 0}
+.blk h3{margin:0 0 1px;font-family:var(--sans);font-weight:500;font-size:11px;
+  letter-spacing:.06em;color:var(--muted-dark)}
+.blk .lcard{margin:7px 0 0}
+
+/* 購票鈕與小字 */
+.cta-wrap{text-align:center;margin:30px 0 0}
+.cta{display:inline-block;font-family:var(--sans);font-size:16px;letter-spacing:.08em;
+  text-decoration:none;border:0;border-radius:2px;padding:15px 44px;cursor:pointer;
+  background:var(--gold);color:var(--cream);max-width:100%}
+.cta:hover{background:var(--gold-deep)}
+.cta.off{background:var(--card);color:var(--muted-dark);cursor:default;pointer-events:none}
+.meta{text-align:center;font-size:12px;color:var(--muted);margin:14px 0 0}
+.note2{text-align:center;font-size:12px;color:var(--muted-dark);margin:4px 0 36px}
+
+/* 頁尾 */
+.site-foot{background:var(--ink);color:var(--on-dark)}
+.foot-in{max-width:var(--wrap);margin:0 auto;padding:52px 20px 38px;text-align:center}
+.foot-brand{font-family:var(--serif);color:var(--cream);font-size:22px;letter-spacing:.22em;
+  font-weight:700;line-height:1.3}
+.foot-brand small{display:block;font-family:var(--sans);font-weight:300;font-size:10px;
+  letter-spacing:.4em;color:var(--gold);margin-top:7px}
+.foot-orgs{font-size:13px;line-height:2.1;margin:24px 0}
+.foot-orgs b{color:var(--cream);font-weight:500;margin-right:8px}
+.foot-orgs a{color:var(--on-dark);text-decoration:none}
+.foot-orgs a:hover{color:var(--cream)}
+.foot-social{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 24px;font-size:13px;
+  letter-spacing:.14em;margin-top:8px}
+.foot-social a{color:var(--on-dark);text-decoration:none}
+.foot-social a:hover{color:var(--cream)}
+.copyright{font-size:12px;color:var(--on-dark-faint);margin-top:26px}
+
+.hero{background:var(--ink);padding:40px 0 36px}
+.hero .brand{font-family:var(--serif);color:var(--cream);font-size:24px;
+  letter-spacing:.18em;font-weight:700;line-height:1.3}
+.hero .bsub{font-size:10px;letter-spacing:.3em;color:var(--gold);margin-top:8px}
+.hero h1{font-family:var(--serif);color:var(--cream);font-weight:600;line-height:1.35;
+  font-size:26px;margin:22px 0 8px}
+@media(min-width:820px){.hero h1{font-size:34px}}
+.hero .dates{font-size:14px;color:var(--on-dark)}
+.cards{display:grid;gap:14px;margin:30px 0 10px}
+@media(min-width:820px){.cards{grid-template-columns:1fr 1fr;gap:18px}}
+.ic{display:block;text-decoration:none;background:var(--paper);
+  border:1px solid var(--card);border-left:4px solid var(--cc);border-radius:3px;
+  padding:20px 22px}
+.ic:hover{border-color:var(--cc)}
+.ic .lang{display:inline-block;font-size:11px;letter-spacing:.06em;color:var(--cc);
+  border:1px solid currentColor;border-radius:2px;padding:0 7px;margin-bottom:9px}
+.ic h2{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);
+  margin:0 0 7px;line-height:1.35}
+.ic p{margin:0;font-size:13px;color:var(--muted-dark);line-height:1.7}
+.ic .go{display:block;margin-top:12px;font-size:12px;color:var(--gold);letter-spacing:.06em}
+.inote{font-size:12.5px;color:var(--muted);line-height:1.8;margin:24px 0 40px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">萬茶盛典 II</div>
+    <div class="bsub">寶元紀之丘 POUYUENJI HILLS</div>
+    <h1>活動時間表</h1>
+    <div class="dates">2026/12/11（五）至 12/13（日）</div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="cards"><a class="ic" href="lecture/" style="--cc:#8A6A2F"><span class="lang">繁體中文</span><h2>講座與戶外茶席</h2><p>大師講堂・職人沙龍・茶感實驗室・戶外茶席</p><span class="go">開啟時間表 →</span></a><a class="ic" href="tea/" style="--cc:#8A4F32"><span class="lang">繁體中文</span><h2>茶席與甜點</h2><p>限定茶席・茶酒席・珍稀茶席・甜點</p><span class="go">開啟時間表 →</span></a><a class="ic" href="lecture-intl/" style="--cc:#2F5A5B"><span class="lang">English・日本語・한국어</span><h2>Lectures &amp; Outdoor Tea Seats</h2><p>Master Lectures・Artisan Salons・Tea Sense Lab・Outdoor Tea Seats</p><span class="go">開啟時間表 →</span></a><a class="ic" href="tea-intl/" style="--cc:#2E5577"><span class="lang">English・日本語・한국어</span><h2>Tea Seats &amp; Desserts</h2><p>Limited Tea Seats・Tea &amp; Spirits・Rare Tea・Desserts</p><span class="go">開啟時間表 →</span></a></div>
+  <p class="inote">時間表更新日期 2026-10-11　｜　場次時間以主辦單位最新公告為準。</p>
+</main>
+
+<footer class="site-foot">
+  <div class="foot-in">
+    <div class="foot-brand">寶元紀之丘<small>POUYUENJI HILLS</small></div>
+    <div class="foot-orgs">
+      <div><b>主辦單位</b><span>財團法人金達摩文化藝術基金會</span></div>
+      <div><b>執行單位</b><a href="https://www.vestafoodsolution.com/" target="_blank" rel="noopener">維斯塔行銷顧問有限公司</a></div>
+    </div>
+    <div class="foot-social">
+      <a href="https://www.facebook.com/PouyuenjiHills/" target="_blank" rel="noopener">FACEBOOK</a>
+      <a href="https://www.instagram.com/pouyuenji_hills/" target="_blank" rel="noopener">INSTAGRAM</a>
+      <a href="https://lin.ee/dqcHzd4" target="_blank" rel="noopener">LINE</a>
+    </div>
+    <div class="copyright">Copyright © 維斯塔行銷顧問有限公司</div>
+  </div>
+</footer>
+</body>
+</html>
