@@ -37,14 +37,12 @@ img,svg{max-width:100%}
 @media(min-width:820px){.phead h1{font-size:30px}}
 .phead .dates{font-size:13px;color:var(--on-dark)}
 .langs{display:flex;gap:6px;margin-top:16px;flex-wrap:wrap}
-@media(min-width:820px){.langs{position:absolute;top:24px;right:70px;margin:0}}
-.home-btn{position:absolute;right:16px;top:18px;z-index:3;display:inline-flex;align-items:center;
-  justify-content:center;width:36px;height:36px;border:1px solid rgba(248,244,236,.32);
-  border-radius:50%;color:var(--cream);text-decoration:none;
-  transition:border-color .15s,color .15s}
-.home-btn:hover{border-color:var(--gold);color:var(--gold)}
-.home-btn svg{width:18px;height:18px;display:block}
-@media(min-width:820px){.home-btn{right:24px;top:22px}}
+@media(min-width:820px){.langs{position:absolute;top:24px;right:24px;margin:0}}
+.foot-home{display:inline-flex;align-items:center;gap:8px;margin:0 0 22px;padding:9px 22px;
+  border:1px solid rgba(248,244,236,.32);border-radius:999px;color:var(--cream);text-decoration:none;
+  font-family:var(--sans);font-size:13px;letter-spacing:.22em;transition:border-color .15s,color .15s}
+.foot-home:hover{border-color:var(--gold);color:var(--gold)}
+.foot-home svg{width:17px;height:17px;display:block}
 .langs button{font-family:var(--sans);font-size:12px;letter-spacing:.04em;cursor:pointer;
   background:transparent;border:1px solid rgba(255,255,255,.26);color:var(--on-dark);
   padding:5px 11px;border-radius:2px}
@@ -180,7 +178,6 @@ a.card:hover{border-color:var(--cc);box-shadow:0 1px 7px rgba(60,40,10,.12)}
 <body>
 <header class="phead">
   <div class="wrap">
-    <a class="home-btn" href="https://teafes.pouyuenjihills.com/tea-fes-II" aria-label="回首頁 Home" title="回首頁 Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10.2V19h14v-8.8"/><path d="M10 19v-5h4v5"/></svg></a>
     <div class="brand" id="brand">萬茶盛典 II</div>
     <div class="bsub" id="bsub">寶元紀之丘 POUYUENJI HILLS</div>
     <h1 id="ptitle">講座與戶外茶席 時間表</h1>
@@ -211,6 +208,7 @@ a.card:hover{border-color:var(--cc);box-shadow:0 1px 7px rgba(60,40,10,.12)}
 
 <footer class="site-foot">
   <div class="foot-in">
+    <a class="foot-home" href="https://teafes.pouyuenjihills.com/tea-fes-II" aria-label="回首頁 Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10.2V19h14v-8.8"/><path d="M10 19v-5h4v5"/></svg><span>HOME</span></a>
     <div class="foot-brand">寶元紀之丘<small>POUYUENJI HILLS</small></div>
     <div class="foot-orgs">
       <div><b id="footOrg">主辦單位</b><span id="footOrgName">財團法人金達摩文化藝術基金會</span></div>
